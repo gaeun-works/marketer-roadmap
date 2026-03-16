@@ -630,6 +630,25 @@
   </footer>
 
   <script>
+    // CTA 버튼 클릭 이벤트
+    document.querySelectorAll('a[href="NOTION_PAGE_URL"]').forEach(function(el) {
+      el.addEventListener('click', function() {
+        gtag('event', 'click_notion_cta');
+      });
+    });
+
+    // 스크롤 50% 이벤트
+    let scroll50Fired = false;
+    window.addEventListener('scroll', function() {
+      if (!scroll50Fired) {
+        const scrolled = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+        if (scrolled >= 0.5) {
+          gtag('event', 'scroll_50');
+          scroll50Fired = true;
+        }
+      }
+    });
+
     // Scroll-triggered fade-in
     const observer = new IntersectionObserver(
       (entries) => {
