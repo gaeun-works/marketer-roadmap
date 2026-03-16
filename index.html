@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>나만의 마케터 로드맵 | 무료 프롬프트</title>
+  <meta name="description" content="방향도 우선순위도 모른 채 공부하고 있다면. 내 상황에 맞는 3개월 로드맵 + 첫 프로젝트를 ChatGPT로 만드는 프롬프트를 드립니다." />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSYQMLKP5L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VSYQMLKP5L');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary: #2563EB;
+      --primary-hover: #1D4ED8;
+      --primary-light: #EFF6FF;
+      --text-main: #111827;
+      --text-sub: #4B5563;
+      --text-muted: #9CA3AF;
+      --border: #E5E7EB;
+      --bg: #FFFFFF;
+      --bg-section: #F9FAFB;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.07);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section {
+      padding: 72px 0;
+    }
+
+    /* ──────────── HEADER ──────────── */
+    header {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -0.3px;
+    }
+
+/* ──────────── HERO ──────────── */
+    #hero {
+      padding: 80px 0 72px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+
+    .hero-headline {
+      font-size: clamp(26px, 5.5vw, 38px);
+      font-weight: 800;
+      line-height: 1.35;
+      letter-spacing: -1px;
+      color: var(--text-main);
+      margin-bottom: 20px;
+      word-break: keep-all;
+    }
+
+    .hero-headline em {
+      color: var(--primary);
+      font-style: normal;
+    }
+
+    /* ──────────── SPEECH BUBBLES ──────────── */
+    .bubble-row {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 18px;
+      margin: 24px auto 36px;
+      max-width: 360px;
+      text-align: left;
+    }
+
+    /* 실제 말풍선 */
+    .bubble {
+      position: relative;
+      display: inline-block;
+      background: #F3F4F6;
+      color: var(--text-main);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px 16px;
+      border-radius: 18px 18px 18px 6px;
+      word-break: keep-all;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    /* 꼭지 — 왼쪽 말풍선 (아래 왼쪽) */
+    .bubble-left::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 18px;
+      border: 0 solid transparent;
+      border-top: 9px solid #F3F4F6;
+      border-left: 7px solid transparent;
+      border-right: 3px solid transparent;
+    }
+
+    /* 꼭지 — 가운데 말풍선 (아래 중앙) */
+    .bubble-center {
+      align-self: center;
+      border-radius: 18px 18px 6px 18px;
+    }
+
+    .bubble-center::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 0 solid transparent;
+      border-top: 9px solid #F3F4F6;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+    }
+
+    /* 꼭지 — 오른쪽 말풍선 (아래 오른쪽) */
+    .bubble-right {
+      align-self: flex-end;
+      border-radius: 18px 18px 6px 18px;
+    }
+
+    .bubble-right::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      right: 18px;
+      border: 0 solid transparent;
+      border-top: 9px solid #F3F4F6;
+      border-left: 3px solid transparent;
+      border-right: 7px solid transparent;
+    }
+
+    .hero-sub {
+      font-size: clamp(14px, 2.8vw, 16px);
+      color: var(--text-sub);
+      line-height: 1.8;
+      word-break: keep-all;
+      margin-bottom: 36px;
+    }
+
+    .hero-sub strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .btn-free-badge {
+      background: #E0F2FE;
+      color: #0369A1;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-right: 8px;
+      letter-spacing: 0.3px;
+      flex-shrink: 0;
+    }
+
+    .cta-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--primary);
+      color: #fff;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 32px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+      letter-spacing: -0.3px;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.38);
+    }
+
+    .btn-primary:active { transform: translateY(0); }
+
+    .cta-note {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ──────────── SECTION COMMON ──────────── */
+    .section-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(22px, 4.5vw, 28px);
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      line-height: 1.4;
+      margin-bottom: 32px;
+      word-break: keep-all;
+    }
+
+    /* ──────────── PROBLEM ──────────── */
+    #problem {
+      background: var(--bg-section);
+    }
+
+    .stat-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 20px 0 28px;
+    }
+
+    .stat-chip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+
+    .stat-rank {
+      font-size: 12px;
+      font-weight: 800;
+      color: #16A34A;
+      background: #DCFCE7;
+      padding: 2px 8px;
+      border-radius: 100px;
+      flex-shrink: 0;
+    }
+
+    .stat-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-main);
+      word-break: keep-all;
+    }
+
+    .problem-context {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.75;
+      word-break: keep-all;
+    }
+
+    /* ──────────── WHY ──────────── */
+    #why {
+      background: var(--bg-section);
+    }
+
+    .why-body {
+      font-size: 15px;
+      color: var(--text-sub);
+      line-height: 1.85;
+      word-break: keep-all;
+    }
+
+    .why-body p {
+      margin-bottom: 14px;
+    }
+
+    .why-highlight {
+      background: var(--primary-light);
+      border-left: 3px solid var(--primary);
+      padding: 18px 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 28px 0;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.65;
+      word-break: keep-all;
+    }
+
+    /* ──────────── SOLUTION ──────────── */
+    #solution {
+      background: var(--bg-section);
+    }
+
+    .output-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .output-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .output-num {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+      margin-top: 1px;
+    }
+
+    .output-text strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 4px;
+      word-break: keep-all;
+    }
+
+    .output-text span {
+      font-size: 13px;
+      color: var(--text-sub);
+      line-height: 1.6;
+      word-break: keep-all;
+    }
+
+    .solution-note {
+      font-size: 13px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .why-credit {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 24px;
+      text-align: center;
+    }
+
+    .credit-link {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .credit-link:hover {
+      color: var(--primary);
+    }
+
+    /* ──────────── AUTHOR ──────────── */
+    #author {
+      background: var(--bg);
+      padding: 40px 0;
+    }
+
+    .author-box {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--bg-section);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+    }
+
+    .author-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), #60A5FA);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .author-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .author-bio {
+      font-size: 13px;
+      color: var(--text-sub);
+      line-height: 1.6;
+      word-break: keep-all;
+    }
+
+    /* ──────────── FINAL CTA ──────────── */
+    #final-cta {
+      background: var(--primary);
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .cta-headline {
+      font-size: clamp(24px, 5vw, 34px);
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+      word-break: keep-all;
+    }
+
+    .cta-sub {
+      font-size: 15px;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 36px;
+      word-break: keep-all;
+    }
+
+    .btn-white {
+      display: inline-block;
+      text-decoration: none;
+      width: 100%;
+      max-width: 420px;
+      background: #fff;
+      color: var(--primary);
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 15px 32px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      letter-spacing: -0.3px;
+    }
+
+    .btn-white:hover { background: #EFF6FF; transform: translateY(-2px); }
+    .btn-white:active { transform: translateY(0); }
+
+
+    /* ──────────── FOOTER ──────────── */
+    footer {
+      padding: 32px 0;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-text {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ──────────── ANIMATIONS ──────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-up {
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    .fade-up:nth-child(1) { animation-delay: 0.05s; }
+    .fade-up:nth-child(2) { animation-delay: 0.15s; }
+    .fade-up:nth-child(3) { animation-delay: 0.25s; }
+    .fade-up:nth-child(4) { animation-delay: 0.35s; }
+
+    /* ──────────── RESPONSIVE ──────────── */
+    @media (min-width: 540px) {
+      .btn-white { width: auto; white-space: nowrap; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container header-inner">
+      <span class="logo">나만의 마케터 로드맵</span>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container">
+      <div class="badge">무료 프롬프트</div>
+      <h1 class="hero-headline fade-up">
+        Q. 마케터 취업하려면<br />
+        <em>먼저 해야 하는 것은?</em>
+      </h1>
+      <div class="bubble-row fade-up">
+        <span class="bubble bubble-left">인턴 해야 하는데…</span>
+        <span class="bubble bubble-center">아니, 그 전에 컴활부터…</span>
+        <span class="bubble bubble-right">대외활동? 공모전? 계정 키우기?</span>
+      </div>
+      <p class="hero-sub fade-up">
+        마케팅 취준생 111명이 가장 많이 반복한 고민입니다.<br />
+        고민은 많은데 행동이 안 되는 이유는 하나 —<br />
+        <strong>판단할 기준 자체가 없기 때문입니다.</strong>
+      </p>
+    </div>
+  </section>
+
+
+  <!-- WHY -->
+  <section id="why">
+    <div class="container">
+      <p class="section-label">왜 일반 로드맵이 안 통하는가</p>
+      <h2 class="section-title">마케팅 직무엔 공식이 없습니다</h2>
+      <div class="why-body">
+        <p>
+          개발이나 회계처럼 자격증 하나로 입문이 결정되지 않습니다.
+          목표 직군이 다르고, 현재 역량이 다르고, 가용 시간이 다릅니다.
+          남들이 말하는 로드맵이 내게 안 맞는 이유입니다.
+        </p>
+        <div class="why-highlight">
+          내 상황을 넣으면, 지금 나의 1순위 액션이 나옵니다.
+        </div>
+        <ul class="output-list">
+          <li class="output-item fade-up">
+            <div class="output-num">1</div>
+            <div class="output-text">
+              <strong>3개월 학습 우선순위 로드맵</strong>
+              <span>월별 집중 항목 + 구체적 행동 + 예상 결과물</span>
+            </div>
+          </li>
+          <li class="output-item fade-up">
+            <div class="output-num">2</div>
+            <div class="output-text">
+              <strong>지금 시작할 프로젝트 1개</strong>
+              <span>주제 · 목적 · 결과물 형태 · 시작에 필요한 것까지</span>
+            </div>
+          </li>
+        </ul>
+        <p class="why-credit">마케팅 취준생 커뮤니티 VOC 111건 분석 기반 · <a href="https://instagram.com/marketer_deodeum" target="_blank" class="credit-link">@marketer_deodeum</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section id="final-cta">
+    <div class="container">
+      <h2 class="cta-headline">나만의 로드맵을 만들어보세요.</h2>
+      <p class="cta-sub">ChatGPT · Gemini · Claude 어디든 사용 가능합니다.</p>
+      <a href="NOTION_PAGE_URL" target="_blank" class="btn-white">
+        프롬프트 확인하기 →
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p class="footer-text">© 2026 <a href="https://instagram.com/marketer_deodeum" target="_blank" class="credit-link">@marketer_deodeum</a>. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll-triggered fade-in
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    document.querySelectorAll('.fade-up').forEach((el) => {
+      if (!el.closest('#hero')) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+        observer.observe(el);
+      }
+    });
+
+  </script>
+</body>
+</html>
