@@ -633,7 +633,7 @@
     // CTA 버튼 클릭 이벤트
     document.querySelectorAll('a[href="NOTION_PAGE_URL"]').forEach(function(el) {
       el.addEventListener('click', function() {
-        gtag('event', 'click_notion_cta');
+        gtag('event', 'click_notion_cta', { transport_type: 'beacon' });
       });
     });
 
